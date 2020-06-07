@@ -55,6 +55,7 @@ spec:
       tier: frontend
   strategy:
     type: Recreate
+  replicas: 2
   template:
     metadata:
       labels:
@@ -64,6 +65,13 @@ spec:
       containers:
       - image: wordpress:4.8-apache
         name: wordpress
+        resources:
+          requests:
+            memory: "300Mi"
+            cpu: "100m"
+          limits:
+            memory: "600Mi"
+            cpu: "200m"
         env:
         - name: WORDPRESS_DB_HOST
           value: wordpress-mysql
