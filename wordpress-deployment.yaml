@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -11,6 +12,7 @@ spec:
     app: wordpress
     tier: frontend
 ---
+# What do we want?
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -18,13 +20,29 @@ metadata:
   labels:
     app: wordpress
 spec:
+  storageClassName: wplocalstorage
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 20Gi
 ---
-apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+# How do we want it implemented
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: wp-local-storage
+spec:
+  storageClassName: wplocalstorage
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/opt/wp_k3s/data/wp/"
+    type: DirectoryOrCreate
+---
+apiVersion: apps/v1   # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
   name: wordpress
