@@ -57,6 +57,10 @@ spec:
         ports:
         - containerPort: 80
           name: wordpress
+        readinessProbe:
+          httpGet:
+                path: /
+                port: 80
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: /var/www/html

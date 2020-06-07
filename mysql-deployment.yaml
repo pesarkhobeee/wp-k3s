@@ -56,6 +56,9 @@ spec:
         ports:
         - containerPort: 3306
           name: mysql
+        readinessProbe:
+          tcpSocket:
+            port: 3306
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
