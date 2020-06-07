@@ -5,3 +5,4 @@ secretGenerator:
 resources:
   - mysql-deployment.yaml
   - wordpress-deployment.yaml
+  - ingress.yaml

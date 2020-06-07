@@ -10,7 +10,6 @@ spec:
   selector:
     app: wordpress
     tier: frontend
-  type: LoadBalancer
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
