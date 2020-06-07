@@ -63,7 +63,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: wordpress:4.8-apache
+      - image: wordpress:5.4.1-php7.4
         name: wordpress
         resources:
           requests:
