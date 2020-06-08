@@ -7,3 +7,4 @@ resources:
   - wordpress-deployment.yaml
   - ingress.yaml
   - autoscaling.yaml
+  - cert-manager.yaml

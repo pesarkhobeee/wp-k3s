@@ -3,6 +3,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: routing
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
     - host: example.com
@@ -12,3 +16,7 @@ spec:
             backend:
               serviceName: wordpress
               servicePort: 80
+  tls:
+  - hosts:
+    - example.com
+    secretName: example-com-tls
