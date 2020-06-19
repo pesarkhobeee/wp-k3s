@@ -11,6 +11,7 @@ spec:
   selector:
     app: wordpress
     tier: frontend
+  clusterIP: None
 ---
 # What do we want?
 apiVersion: v1
