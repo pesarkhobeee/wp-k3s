@@ -19,6 +19,8 @@ What I have added to that?
 * I changed PersistentVolume manner and you can find WordPress and MySQL data in your host machine in /opt/wp_k3s path
 
 My test VPS has just 2 GB ram and 1 vCPU with 20GB disk space and it seems it is working :) but I should mention that this is not recommended specification and the only missing part is a regular mechanism for back up which I think Rclone it the solution for that but I will leave it to you to decide which way fits you better.
+Also, I recorded a short video clip which is covering this personal project in Farsi: 
+https://youtu.be/5XaSVIeSl8I
 
 ## Instalation:
 
@@ -27,7 +29,7 @@ Let's start with installing K3s which is super easy, just run below command:
 ```
   curl -sfL https://get.k3s.io | sh -
   # Check for Ready node, takes maybe 30 seconds
-  k3s kubectl get node
+  kubectl get node
 ```
 
 It is better to install git on your server and clone the current repository on your server and run a setup step like this:
